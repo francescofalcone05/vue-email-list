@@ -3,25 +3,39 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      message: 'Email list!',
+      messageEmail: 'Email list!',
+      messageName: 'Name list!',
       userNumber: '',
       randomEmail: '',
-      generatedList: [],
-      emailLink: 'https://flynn.boolean.careers/exercises/api/random/mail'
+      randomName: '',
+      generatedEmailList: [],
+      generatedNameList: [],
+      emailLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
+      nameLink: 'https://flynn.boolean.careers/exercises/api/random/name'
     }
   },
   methods: {
     getEmail() {
       axios.get(this.emailLink).then((elemento) => {
         (this.randomEmail = elemento.data.response);
-        this.generatedList.push(this.randomEmail);
+        this.generatedEmailList.push(this.randomEmail);
 
       })
     },
-    generateEmail(number) {
+    getName() {
+      axios.get(this.nameLink).then((elemento) => {
+        (this.randomName = elemento.data.response);
+        this.generatedNameList.push(this.randomName);
+
+      })
+    },
+    generateAccount(number) {
   for (let index = 0; index < number; index++) {
     this.getEmail();
-    this.generatedList = [];
+    this.getName();
+    this.generatedEmailList = [];
+    this.generatedNameList = [];
+
   };
 }
   },

@@ -8,6 +8,8 @@
 body{
     background-color: rgb(61, 61, 61);
     color: white;
+    text-align: center;
+
 }
 
 
@@ -22,9 +24,12 @@ body{
 /************* MAIN *************/
 
 .container{
-    width: 50%;
+    width: 40%;
     margin: 1rem auto;
-    text-align: center;
+    display: flex;
+}
+.generatore{
+    width: 50%;
 }
 
 button{
@@ -35,7 +40,7 @@ button{
 
 input{
     padding: 0.2rem;
-    width: 20%;
+    width: 15%;
 }
 
 li{
