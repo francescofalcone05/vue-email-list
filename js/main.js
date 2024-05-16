@@ -34,7 +34,8 @@ createApp({
     }
   },
   mounted() {
-
+    //per poter vedere gli elementi salvati dentro data, in console
+    window.vue = this
   }
 
 }).mount('#app')
