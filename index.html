@@ -23,13 +23,13 @@
             <div class="generatore">
                 <h2>{{ messageEmail }}</h2>
                 <ul>
-                    <li v-if="generatedEmailList.length == userNumber" v-for="elemento,i in generatedEmailList">{{elemento}}</li>
+                    <li v-if="generatedAccountList.length == userNumber" v-for="elemento,i in generatedAccountList">{{elemento.email}}</li>
                 </ul>
             </div>
             <div class="generatore">
                 <h2>{{ messageName }}</h2>
                 <ul>
-                    <li v-if="generatedNameList.length == userNumber" v-for="element,i in generatedNameList">{{element}}</li>
+                    <li v-if="generatedAccountList.length == userNumber" v-for="elemento,i in generatedAccountList">{{elemento.nome}}</li>
                 </ul>
             </div>
         </div>

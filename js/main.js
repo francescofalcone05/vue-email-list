@@ -8,39 +8,33 @@ createApp({
       userNumber: '',
       randomEmail: '',
       randomName: '',
-      generatedEmailList: [],
-      generatedNameList: [],
+      newObject: {},
+      generatedAccountList: [],
       emailLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
       nameLink: 'https://flynn.boolean.careers/exercises/api/random/name'
     }
   },
   methods: {
-    getEmail() {
-      axios.get(this.emailLink).then((elemento) => {
-        (this.randomEmail = elemento.data.response);
-        this.generatedEmailList.push(this.randomEmail);
-
-      })
-    },
-    getName() {
+    getAccount() {
       axios.get(this.nameLink).then((elemento) => {
         (this.randomName = elemento.data.response);
-        this.generatedNameList.push(this.randomName);
-
-      })
+        this.newObject = { nome: this.randomName }
+      });
+      axios.get(this.emailLink).then((elemento) => {
+        (this.randomEmail = elemento.data.response);
+        this.newObject = { nome: this.randomName, email: this.randomEmail }
+        this.generatedAccountList.push(this.newObject)
+      });
     },
     generateAccount(number) {
-  for (let index = 0; index < number; index++) {
-    this.getEmail();
-    this.getName();
-    this.generatedEmailList = [];
-    this.generatedNameList = [];
-
-  };
-}
+      for (let index = 0; index < number; index++) {
+        this.getAccount();
+      };
+      this.generatedAccountList = [];
+    }
   },
-mounted(){
+  mounted() {
 
-}
+  }
 
 }).mount('#app')
